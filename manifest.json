@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Miro Link Opener",
+  "version": "1.0",
+  "description": "Opens linked objects in Miro with middle mouse button.",
+  "permissions": ["activeTab"],
+  "web_accessible_resources": [
+    {
+      "resources": ["miro-actions.js", "menu.js", "styles.css"],
+      "matches": ["https://miro.com/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://miro.com/app/board/uXjVKcOrC9w=*/",
+        "https://miro.com/app/board/uXjVKUmRNFg=*/"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
